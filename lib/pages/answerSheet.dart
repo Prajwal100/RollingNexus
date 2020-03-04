@@ -44,7 +44,7 @@ class AnswerPage extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
-              
+
             ],
           )
         ],
