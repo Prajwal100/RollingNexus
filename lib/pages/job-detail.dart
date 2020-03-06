@@ -11,11 +11,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor:Color(0xfff0f0f0),
-//        appBar: AppBar(
-//        backgroundColor:colors.secondaryColor ,
-//        title: Text('Job Detail'),
-//      ),
-      body:Column(
+        body:Column(
         children: <Widget>[
           Stack(
             children: <Widget>[
@@ -32,7 +28,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: <Widget>[
                     IconButton(
                       onPressed: (){
-                        Navigator.pop(context);
+                        Navigator.of(context).pop(context);
                       },
                       icon: Icon(Icons.arrow_back,color: Colors.white,),
                     ),
@@ -63,58 +59,89 @@ class _DetailPageState extends State<DetailPage> {
                 SizedBox(height: 16,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
                     children: <Widget>[
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: FaIcon(FontAwesomeIcons.thumbsUp,size: 12,color: colors.secondaryColor,),
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: FaIcon(FontAwesomeIcons.userShield,size: 12,color: colors.secondaryColor,),
+                              ),
+                              Text('Full Time',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+                            ],
                           ),
-                          Text('Full Time',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: FaIcon(FontAwesomeIcons.eye,size: 12,color: colors.secondaryColor,),
+                              ),
+                              Text('22',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+                            ],
+                          ),
+
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: FaIcon(FontAwesomeIcons.mapMarkerAlt,size: 12,color: colors.secondaryColor,),
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: FaIcon(FontAwesomeIcons.clock,size: 12,color: colors.secondaryColor,),
+                              ),
+                              Text('2020-02-26',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+                            ],
                           ),
-                          Text('Kathmandu, Nepal',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: FaIcon(FontAwesomeIcons.clock,size: 12,color: colors.secondaryColor,),
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: FaIcon(FontAwesomeIcons.mapMarkerAlt,size: 12,color: colors.secondaryColor,),
+                              ),
+                              Text('Kathmandu, Nepal',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+                            ],
                           ),
-                          Text('3 days ago',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
+
                         ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: FaIcon(FontAwesomeIcons.eye,size: 12,color: colors.secondaryColor,),
-                          ),
-                          Text('22',style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: colors.secondaryColor),)
-                        ],
-                      ),
-
-
-
-
+                      )
                     ],
                   ),
                 ),
-                Divider(),
+                SizedBox(height: 8,),
+
 //          Job Detail
-                Padding(
-                  padding: const EdgeInsets.only(left:8.0),
-                  child: Text('Job detail'.toUpperCase(),style: TextStyle(color:colors.secondaryColor,fontWeight: FontWeight.w500),),
+                Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left:16.0),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(2),
+                                color: colors.secondaryColor
+                            ),
+                            child: Text('Job Detail',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      margin:EdgeInsets.fromLTRB(100, 15, 16, 0),
+                      color: Colors.grey.withOpacity(.3),
+                    )
+
+                  ],
                 ),
+
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -260,88 +287,160 @@ class _DetailPageState extends State<DetailPage> {
 
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: FaIcon(FontAwesomeIcons.clock,size: 12,color: colors.secondaryColor,),
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                    text: 'Deadline :',
+                                    style: TextStyle(color:colors.secondaryColor,fontSize: 12),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text: ' 2020-04-10',
+                                          style: TextStyle(color: colors.secondaryColor,fontWeight:FontWeight.bold,fontSize: 12)
+                                      )
+                                    ]
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
-                Divider(),
 //          Skills & Expertise
-                Padding(
-                  padding: const EdgeInsets.only(left:8.0),
-                  child: Text('Skill & Expertise'.toUpperCase(),style: TextStyle(color:colors.secondaryColor,fontWeight: FontWeight.w500),),
+                Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left:16.0),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(2),
+                                color: colors.secondaryColor
+                            ),
+                            child: Text('Skill & Expertise',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      margin:EdgeInsets.fromLTRB(100, 15, 16, 0),
+                      color: Colors.grey.withOpacity(.3),
+                    )
+
+                  ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 18),
                   child: Wrap(
                     spacing:6,
                     runSpacing: 6,
                     children: <Widget>[
                       Container(
+                        height:25,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.grey.withOpacity(.7),
                             borderRadius: BorderRadius.circular(50)
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical:4.0,horizontal: 12),
+                          padding: const EdgeInsets.symmetric(vertical:2,horizontal: 12),
                           child: Text('Photoshop',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       Container(
+                        height:25,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.grey.withOpacity(.7),
                             borderRadius: BorderRadius.circular(50)
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical:4.0,horizontal: 12),
-                          child: Text('HTML5',style: TextStyle(color: Colors.white),),
+                          padding: const EdgeInsets.symmetric(vertical:2,horizontal: 12),
+                          child: Text('Web Design',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       Container(
+                        height:25,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.grey.withOpacity(.7),
                             borderRadius: BorderRadius.circular(50)
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical:4.0,horizontal: 12),
-                          child: Text('CSS3',style: TextStyle(color: Colors.white),),
+                          padding: const EdgeInsets.symmetric(vertical:2,horizontal: 12),
+                          child: Text('Flutter',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       Container(
+                        height:25,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.grey.withOpacity(.7),
                             borderRadius: BorderRadius.circular(50)
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical:4.0,horizontal: 12),
-                          child: Text('Javascript',style: TextStyle(color: Colors.white),),
+                          padding: const EdgeInsets.symmetric(vertical:2,horizontal: 12),
+                          child: Text('JavaScript',style: TextStyle(color: Colors.white),),
                         ),
                       ),
                       Container(
+                        height:25,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.grey.withOpacity(.7),
                             borderRadius: BorderRadius.circular(50)
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical:4.0,horizontal: 12),
-                          child: Text('CSS3',style: TextStyle(color: Colors.white),),
+                          padding: const EdgeInsets.symmetric(vertical:2,horizontal: 12),
+                          child: Text('PHP',style: TextStyle(color: Colors.white),),
                         ),
                       ),
-
                     ],
                   ),
                 ),
-                Divider(),
 //          Description
-                Padding(
-                  padding: const EdgeInsets.only(left:8.0),
-                  child: Text('Description'.toUpperCase(),style: TextStyle(color:colors.secondaryColor,fontWeight: FontWeight.w500),),
+                Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left:16.0),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(2),
+                                color: colors.secondaryColor
+                            ),
+                            child: Text('Description',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      margin:EdgeInsets.fromLTRB(100, 15, 16, 0),
+                      color: Colors.grey.withOpacity(.3),
+                    )
+
+                  ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 12),
                   child: Text('HOW TO APPLY    All applications must be submitted through online system. Applicant should register and signup to apply this vacancy. The system will send you an email for your email validation, please check your email for validation and follow the instruction for further process to go-ahead for applying job.    Getting started'),
                 ), Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -355,15 +454,14 @@ class _DetailPageState extends State<DetailPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Expanded(
-                        child: FlatButton(
-                          color: colors.secondaryColor,
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: IconButton(
                           onPressed: (){},
-                          child: Container(
-                              child: Padding(
-                                padding: const EdgeInsets.all(13.0),
-                                child: Text('Apply for this job',style: TextStyle(color: Colors.white,fontSize: 16),),
-                              )),
+                          icon: Icon(FontAwesomeIcons.userPlus,color: colors.secondaryColor,size: 18,),
                         ),
                       ),
                       SizedBox(width: 20,),
@@ -376,7 +474,18 @@ class _DetailPageState extends State<DetailPage> {
                           onPressed: (){},
                           icon: Icon(Icons.share,color: colors.secondaryColor,),
                         ),
-                      )
+                      ),
+                      SizedBox(width: 20,),
+                      FlatButton(
+                        color: colors.secondaryColor,
+                        onPressed: (){},
+                        child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(13.0),
+                              child: Text('Apply for this job',style: TextStyle(color: Colors.white,fontSize: 16),),
+                            )),
+                      ),
+
                     ],
                   ),
                 ),

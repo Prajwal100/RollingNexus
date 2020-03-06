@@ -37,42 +37,40 @@ class _TenderDetailPageState extends State<TenderDetailPage> {
                     Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(6),
-                        border:Border.all(color: Colors.grey)
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       child: IconButton(
                         onPressed: (){
                          _showAlertDialogue(context);
                         },
-                        icon: FaIcon(FontAwesomeIcons.eye,color: colors.secondaryColor,),
+                        icon: FaIcon(FontAwesomeIcons.eye,color: colors.secondaryColor,size: 18,),
                       ),
                     ),
                     SizedBox(width: 6,),
                     Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(6),
-                        border:Border.all(color: Colors.grey)
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       child: IconButton(
                         onPressed: (){
-                         _showAlertDialogue(context);
-                        },
-                        icon: FaIcon(FontAwesomeIcons.heart,color: colors.secondaryColor,),
+                                                             },
+                        icon: FaIcon(FontAwesomeIcons.heart,color: colors.secondaryColor,size: 18,),
                       ),
                     ),
                     SizedBox(width: 6,),
                     Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(6),
-                        border:Border.all(color: Colors.grey)
+                        color: Colors.grey.withOpacity(.3),
+                        borderRadius: BorderRadius.circular(50),
                       ),
                       child: IconButton(
                         onPressed: (){
-                         _showAlertDialogue(context);
                         },
-                        icon: FaIcon(FontAwesomeIcons.shareAlt,color: colors.secondaryColor,),
+                        icon: FaIcon(FontAwesomeIcons.shareAlt,color: colors.secondaryColor,size: 18,),
                       ),
                     ),
                   ],
@@ -108,37 +106,21 @@ class _TenderDetailPageState extends State<TenderDetailPage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-               RichText(
-                 text:TextSpan(
-                   text: 'RT ID :',
-                   style: TextStyle(color: colors.secondaryColor),
-                   children: <TextSpan>[
-                     TextSpan(
-                       text: ' RBW-8024-20',
-                       style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
-                     )
-                   ]
-                 )
-               ),
-               RichText(
-                 text:TextSpan(
-                   text: 'Category :',
-                   style: TextStyle(color: colors.secondaryColor),
-                   children: <TextSpan>[
-                     TextSpan(
-                       text: ' RBW-8024-20',
-                       style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
-                     )
-                   ]
-                 )
-               ),
-              ],
+            child:          RichText(
+                text:TextSpan(
+                    text: 'RT ID :',
+                    style: TextStyle(color: colors.secondaryColor),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' RBW-8024-20',
+                          style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
+                      )
+                    ]
+                )
             ),
+
           ),
-//          title
+          //          title
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
             child: RichText(
@@ -154,6 +136,22 @@ class _TenderDetailPageState extends State<TenderDetailPage> {
                 )
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
+            child:RichText(
+                text:TextSpan(
+                    text: 'Category :',
+                    style: TextStyle(color: colors.secondaryColor),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' RBW-8024-20',
+                          style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
+                      )
+                    ]
+                )
+            ),
+          ),
+
 //          Location
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
@@ -220,35 +218,34 @@ class _TenderDetailPageState extends State<TenderDetailPage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                RichText(
-                    text:TextSpan(
-                        text: 'Pre-Bid Meeting :',
-                        style: TextStyle(color: colors.secondaryColor),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ' Don\'t Allow',
-                              style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
-                          )
-                        ]
-                    )
-                ),
-                RichText(
-                    text:TextSpan(
-                        text: 'Event For :',
-                        style: TextStyle(color: colors.secondaryColor),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ' Buy',
-                              style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
-                          )
-                        ]
-                    )
-                ),
-              ],
+            child: RichText(
+                text:TextSpan(
+                    text: 'Pre-Bid Meeting :',
+                    style: TextStyle(color: colors.secondaryColor),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' Don\'t Allow',
+                          style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
+                      )
+                    ]
+                )
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 8),
+            child:RichText(
+                text:TextSpan(
+                    text: 'Event For :',
+                    style: TextStyle(color: colors.secondaryColor),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' Buy',
+                          style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)
+                      )
+                    ]
+                )
+            ),
+
           ),
 //        Delivery
           Padding(
@@ -352,25 +349,79 @@ class _TenderDetailPageState extends State<TenderDetailPage> {
                 )
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:28.0),
-            child: FlatButton(
-              shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-              onPressed: (){},
-
-              color: colors.secondaryColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FaIcon(FontAwesomeIcons.download,color: Colors.white,size: 14,),
-                  SizedBox(width: 6,),
-                  Text('Download CV',style: TextStyle(color: Colors.white,fontSize: 16),),
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                FlatButton(
+                  shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                color: colors.secondaryColor,
+                  onPressed: (){},
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:4.0,),
+                        child: FaIcon(FontAwesomeIcons.download,color: Colors.white,size: 14,),
+                      ),
+                      Text('Download',style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+                FlatButton(
+                  shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                color: colors.secondaryColor,
+                  onPressed: (){},
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:4.0,),
+                        child: FaIcon(FontAwesomeIcons.paperPlane,color: Colors.white,size: 14,),
+                      ),
+                      Text('Participate Now',style: TextStyle(color: Colors.white),)
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
-          SizedBox(height: 10,)
+
+//          Padding(
+//            padding: const EdgeInsets.symmetric(horizontal:28.0),
+//            child: Row(
+//              children: <Widget>[
+//                FlatButton(
+//                  shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+//                  onPressed: (){},
+//
+//                  color: colors.secondaryColor,
+//                  child: Row(
+//                    mainAxisAlignment: MainAxisAlignment.center,
+//                    children: <Widget>[
+//                      FaIcon(FontAwesomeIcons.download,color: Colors.white,size: 14,),
+//                      SizedBox(width: 6,),
+//                      Text('Download Document',style: TextStyle(color: Colors.white,fontSize: 16),),
+//                    ],
+//                  ),
+//                ),
+//                FlatButton(
+//                  shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+//                  onPressed: (){},
+//
+//                  color: colors.secondaryColor,
+//                  child: Row(
+//                    mainAxisAlignment: MainAxisAlignment.center,
+//                    children: <Widget>[
+//                      FaIcon(FontAwesomeIcons.download,color: Colors.white,size: 14,),
+//                      SizedBox(width: 6,),
+//                      Text('Download Document',style: TextStyle(color: Colors.white,fontSize: 16),),
+//                    ],
+//                  ),
+//                ),
+//              ],
+//            ),
+//          ),
+          SizedBox(height: 10,),
         ],
       )
   );

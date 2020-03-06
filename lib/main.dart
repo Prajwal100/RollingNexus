@@ -7,6 +7,7 @@ import 'package:rollingnexus/pages/jobs.dart';
 import 'package:rollingnexus/pages/project.dart';
 import 'package:rollingnexus/pages/tender.dart';
 import 'package:rollingnexus/pages/test.dart';
+import 'package:rollingnexus/pages/training.dart';
 
 void main() {
   runApp(MyApp());
@@ -204,7 +205,9 @@ class _HomePageState extends State<HomePage> {
                                   shape: BoxShape.circle,
                                   color: colors.trainingColor),
                               child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => TrainingPage(),));
+                                },
                                 icon:
                                     FaIcon(FontAwesomeIcons.chalkboardTeacher),
                                 iconSize: 30,

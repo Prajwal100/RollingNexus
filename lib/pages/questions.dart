@@ -112,7 +112,10 @@ class _QuestionPageState extends State<QuestionPage> {
                         child:Center(child: Text('1',style: TextStyle(color: Colors.black45,fontWeight: FontWeight.bold,fontSize: 20),)),
 
                       ),
-                      Text('Which one is the correct answer?',overflow: TextOverflow.ellipsis,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,),)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Which one is the correct answer?',overflow: TextOverflow.ellipsis,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,),),
+                      )
                     ],
                   ),
                 ),

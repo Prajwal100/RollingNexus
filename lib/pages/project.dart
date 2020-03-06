@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rollingnexus/pages/colors.dart' as colors;
+import 'package:rollingnexus/pages/project-detail.dart';
 
 class ProjectPage extends StatefulWidget {
   @override
@@ -68,576 +69,607 @@ class _ProjectPageState extends State<ProjectPage> {
                   ]),
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 13.0,
-                    color: Colors.black.withOpacity(.1),
-                    offset: Offset(6.0, 7.0),
-                  ),
-                ],
-                shape: BoxShape.rectangle,
-                color: Colors.white),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(
-                        'Web Development',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: colors.secondaryColor),
-                      ),
+          InkWell(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetail(),));
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 13.0,
+                      color: Colors.black.withOpacity(.1),
+                      offset: Offset(6.0, 7.0),
                     ),
-                    PopupMenuButton<CustomPopupMenu>(
-                      elevation: 3.2,
-                      initialValue: choices[1],
-                      onCanceled: () {
-                        print('You have not chossed anything');
-                      },
-                      tooltip: 'This is tooltip',
-                      onSelected: _select,
-                      itemBuilder: (BuildContext context) {
-                        return choices.map((CustomPopupMenu choice) {
-                          return PopupMenuItem<CustomPopupMenu>(
-                              value: choice,
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(
-                                      choice.icon,
-                                      color: colors.secondaryColor,
-                                      size: 14,
+                  ],
+                  shape: BoxShape.rectangle,
+                  color: Colors.white),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProjectDetail()));
+                          },
+                          child: Text(
+                            'Web Development',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: colors.secondaryColor),
+                          ),
+                        ),
+                      ),
+                      PopupMenuButton<CustomPopupMenu>(
+                        elevation: 3.2,
+                        initialValue: choices[1],
+                        onCanceled: () {
+                          print('You have not chossed anything');
+                        },
+                        tooltip: 'This is tooltip',
+                        onSelected: _select,
+                        itemBuilder: (BuildContext context) {
+                          return choices.map((CustomPopupMenu choice) {
+                            return PopupMenuItem<CustomPopupMenu>(
+                                value: choice,
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Icon(
+                                        choice.icon,
+                                        color: colors.secondaryColor,
+                                        size: 14,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    choice.title,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                        color: Colors.grey),
-                                  ),
-                                ],
-                              ));
-                        }).toList();
-                      },
-                    )
+                                    Text(
+                                      choice.title,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: Colors.grey),
+                                    ),
+                                  ],
+                                ));
+                          }).toList();
+                        },
+                      )
 //                    PopUpMenu(),
 //                    IconButton(
 //                      onPressed: (){},
 //                      icon:Icon(Icons.more_vert),
 //                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                          'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
                     ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.clock,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('Open : 2019-10-19')
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.hourglassHalf,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('11 bids')
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.tags,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Wrap(
-                            spacing: 3,
-                            children: <Widget>[
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Photoshop',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Java',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.moneyBillWave,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('Price (NRs): 2500')
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 13.0,
-                    color: Colors.black.withOpacity(.1),
-                    offset: Offset(6.0, 7.0),
-                  ),
-                ],
-                shape: BoxShape.rectangle,
-                color: Colors.white),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(
-                        'Web Development',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: colors.secondaryColor),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                            'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
+                      ],
                     ),
-                    PopupMenuButton<CustomPopupMenu>(
-                      elevation: 3.2,
-                      initialValue: choices[1],
-                      onCanceled: () {
-                        print('You have not chossed anything');
-                      },
-                      tooltip: 'This is tooltip',
-                      onSelected: _select,
-                      itemBuilder: (BuildContext context) {
-                        return choices.map((CustomPopupMenu choice) {
-                          return PopupMenuItem<CustomPopupMenu>(
-                              value: choice,
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(
-                                      choice.icon,
-                                      color: colors.secondaryColor,
-                                      size: 14,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.clock,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('Open : 2019-10-19')
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.hourglassHalf,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('11 bids')
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.tags,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Wrap(
+                              spacing: 3,
+                              children: <Widget>[
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Photoshop',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
                                     ),
                                   ),
-                                  Text(
-                                    choice.title,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                        color: Colors.grey),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Java',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
+                                    ),
                                   ),
-                                ],
-                              ));
-                        }).toList();
-                      },
-                    )
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.moneyBillWave,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('Price (NRs): 2500')
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetail(),));
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 13.0,
+                      color: Colors.black.withOpacity(.1),
+                      offset: Offset(6.0, 7.0),
+                    ),
+                  ],
+                  shape: BoxShape.rectangle,
+                  color: Colors.white),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProjectDetail()));
+                          },
+                          child: Text(
+                            'Web Development',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: colors.secondaryColor),
+                          ),
+                        ),
+                      ),
+                      PopupMenuButton<CustomPopupMenu>(
+                        elevation: 3.2,
+                        initialValue: choices[1],
+                        onCanceled: () {
+                          print('You have not chossed anything');
+                        },
+                        tooltip: 'This is tooltip',
+                        onSelected: _select,
+                        itemBuilder: (BuildContext context) {
+                          return choices.map((CustomPopupMenu choice) {
+                            return PopupMenuItem<CustomPopupMenu>(
+                                value: choice,
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Icon(
+                                        choice.icon,
+                                        color: colors.secondaryColor,
+                                        size: 14,
+                                      ),
+                                    ),
+                                    Text(
+                                      choice.title,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: Colors.grey),
+                                    ),
+                                  ],
+                                ));
+                          }).toList();
+                        },
+                      )
 //                    PopUpMenu(),
 //                    IconButton(
 //                      onPressed: (){},
 //                      icon:Icon(Icons.more_vert),
 //                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                          'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
                     ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.clock,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('Open : 2019-10-19')
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.hourglassHalf,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('11 bids')
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.tags,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Wrap(
-                            spacing: 3,
-                            children: <Widget>[
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Photoshop',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Java',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.moneyBillWave,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('Price (NRs): 2500')
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 13.0,
-                    color: Colors.black.withOpacity(.1),
-                    offset: Offset(6.0, 7.0),
-                  ),
-                ],
-                shape: BoxShape.rectangle,
-                color: Colors.white),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Text(
-                        'Web Development',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: colors.secondaryColor),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                            'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
+                      ],
                     ),
-                    PopupMenuButton<CustomPopupMenu>(
-                      elevation: 3.2,
-                      initialValue: choices[1],
-                      onCanceled: () {
-                        print('You have not chossed anything');
-                      },
-                      tooltip: 'This is tooltip',
-                      onSelected: _select,
-                      itemBuilder: (BuildContext context) {
-                        return choices.map((CustomPopupMenu choice) {
-                          return PopupMenuItem<CustomPopupMenu>(
-                              value: choice,
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(
-                                      choice.icon,
-                                      color: colors.secondaryColor,
-                                      size: 14,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.clock,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('Open : 2019-10-19')
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.hourglassHalf,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('11 bids')
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.tags,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Wrap(
+                              spacing: 3,
+                              children: <Widget>[
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Photoshop',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
                                     ),
                                   ),
-                                  Text(
-                                    choice.title,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                        color: Colors.grey),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Java',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
+                                    ),
                                   ),
-                                ],
-                              ));
-                        }).toList();
-                      },
-                    )
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.moneyBillWave,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('Price (NRs): 2500')
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetail(),));
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 13.0,
+                      color: Colors.black.withOpacity(.1),
+                      offset: Offset(6.0, 7.0),
+                    ),
+                  ],
+                  shape: BoxShape.rectangle,
+                  color: Colors.white),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProjectDetail()));
+                          },
+                          child: Text(
+                            'Web Development',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: colors.secondaryColor),
+                          ),
+                        ),
+                      ),
+                      PopupMenuButton<CustomPopupMenu>(
+                        elevation: 3.2,
+                        initialValue: choices[1],
+                        onCanceled: () {
+                          print('You have not chossed anything');
+                        },
+                        tooltip: 'This is tooltip',
+                        onSelected: _select,
+                        itemBuilder: (BuildContext context) {
+                          return choices.map((CustomPopupMenu choice) {
+                            return PopupMenuItem<CustomPopupMenu>(
+                                value: choice,
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Icon(
+                                        choice.icon,
+                                        color: colors.secondaryColor,
+                                        size: 14,
+                                      ),
+                                    ),
+                                    Text(
+                                      choice.title,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                          color: Colors.grey),
+                                    ),
+                                  ],
+                                ));
+                          }).toList();
+                        },
+                      )
 //                    PopUpMenu(),
 //                    IconButton(
 //                      onPressed: (){},
 //                      icon:Icon(Icons.more_vert),
 //                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                          'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
                     ],
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.clock,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('Open : 2019-10-19')
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.hourglassHalf,
-                              size: 16,
-                              color: colors.secondaryColor,
-                            ),
-                          ),
-                          Text('11 bids')
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                            'The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close..')
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.tags,
-                              size: 16,
-                              color: colors.secondaryColor,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.clock,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
                             ),
-                          ),
-                          Wrap(
-                            spacing: 3,
-                            children: <Widget>[
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Photoshop',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
+                            Text('Open : 2019-10-19')
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.hourglassHalf,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('11 bids')
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.tags,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Wrap(
+                              spacing: 3,
+                              children: <Widget>[
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Photoshop',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.grey.withOpacity(.7),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 2.0, horizontal: 8),
-                                  child: Text(
-                                    'Java',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.grey.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2.0, horizontal: 8),
+                                    child: Text(
+                                      'Java',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.moneyBillWave,
-                              size: 16,
-                              color: colors.secondaryColor,
+                              ],
                             ),
-                          ),
-                          Text('Price (NRs): 2500')
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.moneyBillWave,
+                                size: 16,
+                                color: colors.secondaryColor,
+                              ),
+                            ),
+                            Text('Price (NRs): 2500')
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-              ],
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
             ),
           ),
+
         ],
       ),
     );
